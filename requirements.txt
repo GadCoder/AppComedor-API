@@ -24,3 +24,6 @@ passlib[bcrypt]
 #testing
 pytest
 requests
+
+#for jwt tokens
+python-jose

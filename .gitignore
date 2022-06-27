@@ -1,5 +1,7 @@
 api-env/
 __pycache__/
 venv/
+.pytest_cache/
 .env
 env
+test_db.db
