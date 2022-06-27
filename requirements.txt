@@ -1,4 +1,22 @@
+#for main api
 fastapi
 uvicorn
+
+#for html templates
 jinja2
+
+#for static files
 aiofiles
+
+#for database
+sqlalchemy
+psycopg2-binary
+
+#for loading environment variables
+python-dotenv
+
+#for email validation
+pydantic[email]
+
+#hashing
+passlib[bcrypt]
