@@ -1,0 +1,23 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>ComedorUNMSM API</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row mb-5">
+      <h1 class="display-4">ComedorUNMSM API</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ url_for('static', path='images/chefcito.webp') }}" alt="" width="max-width" height="30%">
+      </div>
+      <div class="col-md-8">
+         <p style="width: 50%">Esta es la pagina principal de nuestra API para el app del comedor de San Marcos. Por ahora está en proceso pero en un futuro esta será la manera en la que el administrador del app administre los platos semanales, controle las raciones etc
+      </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
