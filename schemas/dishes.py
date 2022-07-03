@@ -25,10 +25,12 @@ class DishCreate(DishBase):
     img_url: str
     score: float
 
+
 class ShowDish(DishBase):
     name: str
     img_url: str
     score: float
+
     class Config():
         orm_mode = True
 

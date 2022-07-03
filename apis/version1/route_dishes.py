@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status
 
 from db.session import get_db
-from db.models.dishes import Dish
 from schemas.dishes import DishCreate, ShowDish
 from db.repository.dishes import create_new_dish, retreive_dish, retreive_all_dishes
 
@@ -26,7 +25,7 @@ def create_dish(dish: DishCreate, db: Session = Depends(get_db)):
 
 
 @router.get("/get/all")
-def read_dish(db: Session = Depends(get_db)):
+def read_all_dishes(db: Session = Depends(get_db)):
     dishes = retreive_all_dishes(db)
     if not dishes:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"No se encuentran registros de los platos")
