@@ -8,8 +8,8 @@ load_dotenv(dotenv_path=env_path)
 
 
 class Settings:
-    PROJECT_NAME : str = "Comedor API"
-    PROJECT_VERSION : str = "1.0.0"
+    PROJECT_NAME: str = "Comedor API"
+    PROJECT_VERSION: str = "1.0.0"
 
     POSTGRES_USER: str = os.getenv("POSTGRES_USER")
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
@@ -21,6 +21,7 @@ class Settings:
     # HASHING TOKEN
     SECRET_KEY: str = os.getenv("SECRET_KEY")
     ALGORITHM = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES = 30
+    ACCESS_TOKEN_EXPIRE_MINUTES = 60
+
 
 settings = Settings()

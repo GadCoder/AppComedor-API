@@ -27,3 +27,6 @@ requests
 
 #for jwt tokens
 python-jose
+
+#for accessing from data
+python-multipart
