@@ -1,4 +1,4 @@
-S#for main api
+#for main api
 fastapi
 uvicorn
 
