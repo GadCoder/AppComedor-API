@@ -24,3 +24,4 @@ class User(Base):
     code = Column(String)
     is_banned = Column(Boolean(), default=False)
     is_superuser = Column(Boolean(), default=False)
+    profile_photo_url = Column(String, nullable=False)

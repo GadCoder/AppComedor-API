@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status
 
+from apis.version1.route_login import get_current_user_from_token
+from db.models.users import User
 from db.session import get_db
 from schemas.dishes import DishCreate, ShowDish
 from db.repository.dishes import create_new_dish, retreive_dish, retreive_all_dishes
@@ -19,9 +21,14 @@ Si se hace una peticion http a la ruta:
 """
 
 @router.post("/create-dish/", response_model=ShowDish)
-def create_dish(dish: DishCreate, db: Session = Depends(get_db)):
-    dish = create_new_dish(dish=dish, db=db)
-    return dish
+def create_dish(dish: DishCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user_from_token)):
+    if current_user.is_superuser:
+        dish = create_new_dish(dish=dish, db=db)
+        return dish
+    raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Usuario con codigo {current_user.code} no tiene autorizacion para crear nuevos platos"
+        )
 
 
 @router.get("/get/all")

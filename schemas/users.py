@@ -8,6 +8,8 @@ class UserCreate(BaseModel):
     code: str
     names: str
     lastnames: str
+    profile_photo_url: str
+    is_superuser: bool
 
 
 class ShowUser(BaseModel):
@@ -17,3 +19,14 @@ class ShowUser(BaseModel):
 
     class Config(): # convert dict or non dict obj to json
         orm_mode = True
+
+
+class ShowFullUser(BaseModel):
+    email: EmailStr
+    code: str
+    names: str
+    lastnames: str
+    profile_photo_url: str
+    class Config(): # convert dict or non dict obj to json
+        orm_mode = True
+

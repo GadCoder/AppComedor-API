@@ -19,7 +19,7 @@ def test_create_bug(client):
         "description": "No hay moros en la costa"
     }
     response = client.post("/bugs/create-bug/", json.dumps(data))
-    assert  response.status_code == 200
+    assert response.status_code == 200
     assert response.json()["day"] == "Domingo"
     assert response.json()["hour"] == "17:30"
 
