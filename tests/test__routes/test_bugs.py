@@ -23,6 +23,7 @@ def test_create_bug(client):
     assert response.json()["day"] == "Domingo"
     assert response.json()["hour"] == "17:30"
 
+
 def test_read_bug(client):
     data = {
         "day": "Domingo",
