@@ -14,5 +14,5 @@ def test_create_user(client, normal_user_token_headers):
     }
     response = client.post("/users/create-user/", json.dumps(data), headers=normal_user_token_headers)
     assert response.status_code == 200
-    assert response.json()["email"] == "obiwan.kenobi@jedi.order.com"
+    assert response.json()["email"] == "obi.kenobi@jedi.order.com"
     assert response.json()["is_banned"] == False

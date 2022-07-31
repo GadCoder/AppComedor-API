@@ -11,7 +11,6 @@ class Bug(Base):
 
 """
 
-
 def test_create_bug(client):
     data = {
         "day": "Domingo",

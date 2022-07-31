@@ -13,18 +13,6 @@ def user_authentication_headers(client: TestClient, email: str, password: str):
     headers = {"Authorization": f"Bearer {auth_token}"}
     return headers
 
-"""
-class UserCreate(BaseModel):
-    email: EmailStr
-    password: str
-    code: str
-    names: str
-    lastnames: str
-    profile_photo_url: str
-    is_superuser: bool
-
-"""
-
 
 def authentication_token_from_email(client: TestClient, email: str, db: Session):
     """
@@ -41,7 +29,7 @@ def authentication_token_from_email(client: TestClient, email: str, db: Session)
                                     names="Obi Wan",
                                     lastnames="Kenobi",
                                     profile_photo_url="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/obi-wan-kenobi-1655894421.jpeg?resize=480:*",
-                                    is_superuser = True
+                                    is_superuser=True
                                     )
         user = create_new_user(user=user_in_create, db=db)
     return user_authentication_headers(client=client, email=email, password=password)
