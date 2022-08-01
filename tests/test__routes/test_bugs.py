@@ -1,16 +1,6 @@
 import json
 
 
-"""
-
-class Bug(Base):
-    id = Column(Integer, primary_key=True, index=True)
-    day = Column(String)
-    hour = Column(String)
-    description = Column(String)
-
-"""
-
 def test_create_bug(client):
     data = {
         "day": "Domingo",

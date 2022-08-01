@@ -5,3 +5,8 @@ venv/
 .env
 env
 test_db.db
+.coverage.xml
+.coverage
+tests/.scannerwork/
+.scannerwork
+coverage.xml
