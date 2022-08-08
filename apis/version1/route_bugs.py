@@ -28,7 +28,7 @@ def create_bug(bug: BugCreate, db: Session = Depends(get_db)):
 def read_all_bugs(db: Session = Depends(get_db)):
     bugs = retreive_all_bugs(db)
     if not bugs:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"No se encuentran los bugs")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"No se encuentran los bugs")
     return bugs
 
 
@@ -36,7 +36,7 @@ def read_all_bugs(db: Session = Depends(get_db)):
 def read_bug(id: int, db: Session = Depends(get_db)):
     bug = retreive_bug(id=id, db=db)
     if not bug:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"Bug con id {id} no existe")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Bug con id {id} no existe")
     return bug
 
 
