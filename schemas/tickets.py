@@ -7,7 +7,7 @@ class TicketCreate(BaseModel):
     shift: str
     hour: str
 
-class ShowTciket(BaseModel):
+class ShowTicket(BaseModel):
     ticket_id: int
     code: str
     shift: str
