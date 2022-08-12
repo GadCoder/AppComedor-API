@@ -4,7 +4,7 @@ from fastapi import Depends
 
 from schemas.tickets import TicketCreate, ShowTicket
 from db.session import get_db
-from db.repository_tickets import create_new_ticket
+from db.repository.tickets import create_new_ticket
 
 router = APIRouter()
 
