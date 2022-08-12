@@ -12,3 +12,4 @@ api_router.include_router(route_users.router, prefix="/users", tags=["users"])
 api_router.include_router(route_dishes.router, prefix="/dishes", tags=["dishes"])
 api_router.include_router(route_login.router, prefix="/login", tags=["login"])
 api_router.include_router(route_bugs.router, prefix="/bugs", tags=["bugs"])
+

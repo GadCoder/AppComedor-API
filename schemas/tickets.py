@@ -6,3 +6,12 @@ class TicketCreate(BaseModel):
     code: str
     shift: str
     hour: str
+
+class ShowTciket(BaseModel):
+    ticket_id: int
+    code: str
+    shift: str
+    hour: str
+
+    class Config():
+        orm_mode = True
