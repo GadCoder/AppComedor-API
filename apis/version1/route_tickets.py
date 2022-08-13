@@ -32,7 +32,7 @@ def get_tickets_from_shift(shift: str,db: Session = Depends(get_db)):
     return tickets
 
 
-@router.get("get-ticket-info", response_model=ShowTicket)
+@router.get("/get-ticket-info/", response_model=ShowTicket)
 def get_ticket_info(code: str, db: Session = Depends(get_db)):
     ticket = retreative_ticket(code, db)
     if not ticket:
