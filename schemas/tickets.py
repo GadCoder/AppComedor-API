@@ -7,6 +7,7 @@ class TicketBase(BaseModel):
     code: Optional[str] = None
     shift: Optional[str] = None
     hour: Optional[str] = None
+    is_scanned: Optional[bool] = False
 
 
 class TicketCreate(TicketBase):
