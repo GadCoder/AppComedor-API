@@ -10,3 +10,10 @@ def create_new_ticket(ticket:TicketCreate, db:Session):
     db.commit()
     db.refresh(ticket)
     return ticket
+
+
+def get_number_of_tickets_from_shift(shift: str, db: Session):
+    number_of_tickets = db.query(Ticket).filter(Ticket.shift == shift).count()
+    return number_of_tickets
+
+

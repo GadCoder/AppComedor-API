@@ -1,10 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import Session
-from fastapi import Depends
+from fastapi import Depends, HTTPException, status
 
 from schemas.tickets import TicketCreate, ShowTicket
 from db.session import get_db
-from db.repository.tickets import create_new_ticket
+from db.repository.tickets import create_new_ticket, get_number_of_tickets_from_shift
 
 router = APIRouter()
 
@@ -13,3 +13,12 @@ router = APIRouter()
 def create_ticket(ticket: TicketCreate, db: Session = Depends(get_db)):
     ticket = create_new_ticket(ticket=ticket, db=db)
     return ticket
+
+
+@router.get("/get-shift-tickets/")
+def get_tickets_from_shift(shift: str,db: Session = Depends(get_db)):
+    tickets = get_number_of_tickets_from_shift(shift, db)
+    if not tickets:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"No se encuentran los tickeds")
+    return tickets
+
