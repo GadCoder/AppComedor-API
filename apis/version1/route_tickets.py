@@ -28,7 +28,7 @@ def get_all_tickets(db: Session = Depends(get_db)):
 def get_tickets_from_shift(shift: str,db: Session = Depends(get_db)):
     tickets = get_number_of_tickets_from_shift(shift, db)
     if not tickets:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"No se encuentran los tickeds")
+        return 0
     return tickets
 
 
