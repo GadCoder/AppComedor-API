@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status
 
-from schemas.tickets import TicketCreate, ShowTicket
+from schemas.tickets import TicketCreate, ShowTicket, ShowFullTicket
 from db.session import get_db
 from db.repository.tickets import create_new_ticket, get_number_of_tickets_from_shift, retreative_ticket, \
     retreative_all_tickets
@@ -24,7 +24,7 @@ def get_all_tickets(db: Session = Depends(get_db)):
     return tickets
 
 
-@router.get("/get-shift-tickets/")
+@router.get("/get-shift-tickets/{shift}")
 def get_tickets_from_shift(shift: str,db: Session = Depends(get_db)):
     tickets = get_number_of_tickets_from_shift(shift, db)
     if not tickets:
@@ -32,7 +32,7 @@ def get_tickets_from_shift(shift: str,db: Session = Depends(get_db)):
     return tickets
 
 
-@router.get("/get-ticket-info/", response_model=ShowTicket)
+@router.get("/get-ticket-info/{code}", response_model=ShowTicket)
 def get_ticket_info(code: str, db: Session = Depends(get_db)):
     ticket = retreative_ticket(code, db)
     if not ticket:
