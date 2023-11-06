@@ -7,9 +7,14 @@ from typing import Generator
 from core.config import settings
 
 
-SQL_ALCHEMY_DATABASE_URL = settings.DATABASE_URL # URL de la base de datos
-engine = create_engine(SQL_ALCHEMY_DATABASE_URL) # sqlalchemy engine
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) #database session
+SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
+# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
+
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
+SessionLocal = sessionmaker(
+    autocommit=False, autoflush=False, bind=engine)  # database session
 
 
 def get_db() -> Generator:
